@@ -1,4 +1,13 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  DataType,
+  ForeignKey,
+  BelongsTo,
+} from 'sequelize-typescript';
+
+import { Role } from '../roles/role.entity';
 
 @Table
 export class User extends Model<User> {
@@ -41,13 +50,18 @@ export class User extends Model<User> {
   })
   password: string;
 
+  @ForeignKey(() => Role)
   @Column({
-    type: DataType.STRING,
+    type: DataType.INTEGER,
+    allowNull: false,
   })
   roleId: string;
 
+  @BelongsTo(() => Role)
+  role: Role;
+
   @Column({
-    type: 'jsonb',
+    type: DataType.JSONB,
   })
   meta: string;
 
@@ -62,7 +76,7 @@ export class User extends Model<User> {
   })
   isBlocked: string;
 
-  @Column({ type: 'varchar' })
+  @Column({ type: DataType.STRING })
   referralCode: string;
 
   @Column({ allowNull: false, type: DataType.DATE })
