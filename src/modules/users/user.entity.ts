@@ -68,20 +68,22 @@ export class User extends Model<User> {
   @Column({
     allowNull: false,
     type: DataType.DATE,
+    defaultValue: new Date(),
   })
   tokenIssueTime: Date;
 
   @Column({
     type: DataType.STRING,
+    defaultValue: false,
   })
   isBlocked: string;
 
   @Column({ type: DataType.STRING })
   referralCode: string;
 
-  @Column({ allowNull: false, type: DataType.DATE })
+  @Column({ allowNull: false, type: DataType.DATE, defaultValue: new Date() })
   createdAt: Date;
 
-  @Column({ allowNull: false, type: DataType.DATE })
+  @Column({ allowNull: false, type: DataType.DATE, defaultValue: new Date() })
   updatedAt: Date;
 }

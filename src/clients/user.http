@@ -1,1 +1,17 @@
 GET http://localhost:3000/api/v2/users
+
+### 
+
+POST  http://localhost:3000/api/v2/auth/signup
+content-type: application/json
+
+{
+	"firstName": "Daniel",
+	"lastName": "Edeh",
+	"email": "daniel@test.com",
+	"address": "palmgrove, somolu",
+	"phoneNumber": "07035778669",
+	"password": "d@ssword",
+	"roleId": 3,
+	"referralCode":"2dkfjr"
+}
