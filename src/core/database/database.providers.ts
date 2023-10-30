@@ -1,8 +1,10 @@
 import { Sequelize } from 'sequelize-typescript';
 import { SEQUELIZE, DEVELOPMENT, TEST, PRODUCTION } from '../constants';
-import { databaseConfig } from './database.config';
 import { User } from '../../modules/users/user.entity';
 import { Role } from '../../modules/roles/role.entity';
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const databaseConfig = require('./database.config');
 
 export const databaseProviders = [
   {
