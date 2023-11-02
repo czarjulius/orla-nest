@@ -2,8 +2,6 @@
 
 type orderType = 'ASC' | 'DESC' | 'NULLS FIRST';
 
-// @Injectable()
-// export class PaginateRecords {
 export const getPaginatedRecords = async (
   model,
   {
@@ -21,8 +19,6 @@ export const getPaginatedRecords = async (
   },
   ...args
 ): Promise<typeof model> => {
-  console.log(model, '?????????');
-
   const offset = pageOffset !== undefined ? pageOffset : (page - 1) * limit;
 
   const result = await model.findAll({
@@ -49,4 +45,3 @@ export const getPaginatedRecords = async (
     totalPages: Math.ceil(count / limit),
   };
 };
-// }
